@@ -9,7 +9,6 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template("data.html")
-    
 @app.route('/index')
 def index():
     return render_template("index.html")
@@ -17,7 +16,17 @@ def index():
 @app.route('/location')
 def location():
     location_options = get_location_options()
+    with open('suicide_attacks.json') as suicide_attacks:
+        attacks = json.load(suicide_attacks)
+    if "location" in request.args:
+        number = 0
+        for a in attacks:
+            if a["target"]["country"] == request.args["location"]:
+                number += 1
+                
+        return render_template("locationresponse.html", locations = location_options, num = number, country =  request.args["location"])
     return render_template("location.html", locations = location_options)
+    
     
 @app.route('/attacker')
 def attacker():
