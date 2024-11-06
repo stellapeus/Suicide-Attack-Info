@@ -34,7 +34,9 @@ def attacker():
     
 @app.route('/time')
 def time():
-    return render_template("time.html")
+    plot = get_suicide_points()
+    return render_template("time.html", thePlot=plot)
+    
     
 def get_location_options():
     with open("suicide_attacks.json") as attacks:
@@ -45,7 +47,22 @@ def get_location_options():
             locations.append(attack["target"]["country"])
     return locations
     
+def get_suicide_points():
+    with open("suicide_attacks.json") as attacks:
+        attacksData = json.load(attacks)
+    time={}
+    for t in time:
+        time[str(t['year']) == t['wounded_low']]
+    print(time)
+    plot_suicide_points =""
+    for key, value in time.items():
+        plot_suicide_points = plot_suicide_points + Markup({x: ' + str(key) + ', y: '+ str(value) +'})
+    return plot_suicide_points    
+    
+    
 if __name__ == '__main__':
     app.run(debug=False) # change to False when running in production
+    
+    
     
  
