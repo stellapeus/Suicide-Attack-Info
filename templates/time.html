@@ -21,9 +21,6 @@
 			  <li class="nav-item">
 				<a class="nav-link" href="/location">Location</a>
 			  </li>
-			  <li class="nav-item">
-			<a class="nav-link" href="/attacker">Attacker</a>
-			</li>
 			<li class="nav-item">
 			<a class="nav-link disabled" href="/time">Time</a>
 			</li>
@@ -37,31 +34,25 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	zoomEnabled: true,
 	axisX: {
-	title:"Years between 1900 and 2000":1
+	title:"Years between 1900 and 2000", 
 	intervals:1
 	
-	}
+	},
 	
+	axisY: {
+	title: "Number of wounded low suicide attacks",
+	intervals: 10
+	
+	}, 
 	
 	data: [{
 		type: "area",
 		dataPoints: [{{plot}}]
 	}]
 });
-
-addDataPoints(1000);  
+ 
 chart.render();
-
-function addDataPoints(noOfDps) {
-	var xVal = chart.options.data[0].dataPoints.length + 1, yVal = 100;
-	for(var i = 0; i < noOfDps; i++) {
-		yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
-		chart.options.data[0].dataPoints.push({x: xVal,y: yVal});	
-		xVal++;
-	}
-}
-
-}
+} 
 </script>
 </head>
 <body>
