@@ -1,2 +1,29 @@
 h1 {
-	
+	font-size: 50px;
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+	color: #ba1a22;
+}
+
+.text {
+	font-size: 40px;
+	font-family: "Brush Script MT", cursive;
+	text-align: center;
+	color: #ba1a22;
+}
+
+body {
+	background-color: #e8c5c7;
+}
+
+form {
+	text-align: center;
+}
+
+p {
+	font-family: "Courier New", Courier, monospace;
+}
+
+ul {
+	list-style-type: none;
+}
