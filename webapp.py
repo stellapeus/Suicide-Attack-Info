@@ -52,7 +52,10 @@ def get_suicide_points():
         attacksData = json.load(attacks)
     time={}
     for t in attacksData:
-        time[str(t['date']['year'])] = t['statistics']['# wounded_low']
+        if str(t['date']['year']) not in time:
+            time[str(t['date']['year'])] = t['statistics']['# killed_low']
+        else:
+            time[str(t['date']['year'])] += t['statistics']['# killed_low']
     time = dict(sorted(time.items()))
     print(time)
     plot_suicide_points =""

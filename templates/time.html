@@ -28,8 +28,7 @@
 		  </div>
 		</nav>
 		
-		<h1 class="text">Here is a graph that illustrates the number of suicide attacks where not many
-		people were wounded and the years between 1974 and 2018.</h1>
+		<h1 class="text">Here is a graph that illustrates the lowest estimated number of people killed each year from a suicide attack</h1>
 		<script>
 		window.onload = function () {
 var chart = new CanvasJS.Chart("chartContainer", {
@@ -37,18 +36,20 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	zoomEnabled: true,
 	axisX: {
+	valueFormatString: "####",
 	title:"Years between 1974 and 2018", 
 	intervals:1
 	
 	},
 	
 	axisY: {
-	title: "Number of wounded low suicide attacks",
+	title: "Lowest estimate of people killed in suicide attacks",
 	intervals: 10
 	
 	}, 
 	
 	data: [{
+		xValueFormatString: "####",
 		type: "area",
 		dataPoints: [{{plot}}]
 	}]
